@@ -115,7 +115,7 @@ export default function SettingsPage() {
     setResult(null);
 
    try {
-      const data = await apiFetch<ProtectedResponse>('facebook/connect'); // ← your Laravel GET endpoint
+      const data = await apiFetch<ProtectedResponse>('/facebook/connect'); // ← your Laravel GET endpoint
 
       setResult(data);
       toast.success('Protected data loaded successfully!', {

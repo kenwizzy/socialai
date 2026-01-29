@@ -1,7 +1,7 @@
 "use client"
 
 import React from "react"
-import { Suspense } from "react"
+import { Suspense, useMemo } from "react"
 import { useSearchParams } from "next/navigation"
 
 import { useState } from "react"
@@ -88,7 +88,9 @@ const Loading = () => null;
 export default function CampaignsPage() {
   const [activeTab, setActiveTab] = useState("all")
   const [searchQuery, setSearchQuery] = useState("")
-  const searchParams = useSearchParams();
+  //chParams = useSearchParams();
+  const searchParams = useMemo(() => useSearchParams(), [])
+
 
   const filteredCampaigns = campaigns.filter((campaign) => {
     const matchesSearch = campaign.name.toLowerCase().includes(searchQuery.toLowerCase())
